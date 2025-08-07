@@ -22,11 +22,11 @@ Once deployed, the bot lets you:
 - Python 3.7+
 - Telegram account with a bot token
 - A Raspberry Pi (or Linux machine)
-- The following Python packages:
+ - The Python packages listed in `requirements.txt`:
 
-```bash
-pip install python-telegram-bot python-dotenv requests
-```
+ ```bash
+ pip install -r requirements.txt
+ ```
 
 ---
 
@@ -64,10 +64,10 @@ This image will be sent in response to the `/photo` command.
 ## 🔧 Usage
 
 1. Clone the repository and navigate to the project folder.
-2. Install dependencies:
-   ```bash
-   pip install python-telegram-bot python-dotenv requests
-   ```
+ 2. Install dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
 3. Create your `.env` file as shown above.
 4. Run the bot:
    ```bash
