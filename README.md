@@ -23,7 +23,7 @@ Once deployed, the bot lets you:
 - Python 3.7+
 - Telegram account with a bot token
 - A Raspberry Pi (or Linux machine)
- - The Python packages listed in `requirements.txt`:
+- The Python packages listed in `requirements.txt` (includes job-queue extras):
 
  ```bash
  pip install -r requirements.txt
