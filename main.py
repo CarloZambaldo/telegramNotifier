@@ -75,12 +75,7 @@ class App:
         )
 
         # Periodically report top processes
-        if self.app.job_queue:
-            self.app.job_queue.run_repeating(
-                self.process_report, interval=3600, first=0
-            )
-        else:  # pragma: no cover - requires job-queue extra
-            print("JobQueue not available; periodic process report disabled")
+        self.app.job_queue.run_repeating(self.process_report, interval=3600, first=0)
 
     def run(self) -> None:
         """Start polling."""
