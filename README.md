@@ -6,12 +6,13 @@ This project provides a simple Telegram bot that allows remote management of you
 
 Once deployed, the bot lets you:
 
-- `/start` – Receive a welcome message (not implemented yet).
-- `/status` – View the system's uptime.
-- `/photo` – Get a test photo from the Raspberry Pi.
+- `/status` – View uptime, disk usage and CPU temperature.
+- `/photo` – Capture a live photo from an attached USB camera.
+- `/led on|off` – Toggle a GPIO pin (e.g. an LED).
+- `/run <command>` – Start a shell command and interact with it via chat.
 - `/super reboot yes` – Remotely reboot the Raspberry Pi.
 - `/super poweroff yes` – Remotely power off the Raspberry Pi.
-- `/help` – Display a help message (not implemented yet).
+- Automatic hourly updates of the top running processes are sent to the owner.
 
 > ❗️ Only one authorized user (defined in `.env`) can use the bot. Unauthorized users will be notified with a rejection message.
 
@@ -51,13 +52,8 @@ CHAT_ID=your_telegram_user_id_here
 
 ## 📸 Photo Feature
 
-Make sure you have a test image saved at the following path:
-
-```
-./img/test.png
-```
-
-This image will be sent in response to the `/photo` command.
+The `/photo` command uses the first available USB camera to capture an image in
+real time.
 
 ---
 
@@ -88,10 +84,9 @@ This image will be sent in response to the `/photo` command.
 ## 📁 File Structure
 
 ```
-├── img/
-│   └── test.png          # Image used by the /photo command
-├── .env                  # Environment variables (not committed)
-└── your_bot_script.py    # The main bot script
+├── .env               # Environment variables (not committed)
+├── main.py            # The main bot script
+└── requirements.txt   # Python dependencies
 ```
 
 ---
@@ -99,11 +94,9 @@ This image will be sent in response to the `/photo` command.
 ## 🛠️ Future Improvements
 
 - Implement the `/start` and `/help` command handlers.
-- Replace static image with live camera capture.
-- Add more system commands (e.g., disk space, CPU temp).
-- Integrate GPIO or sensor controls.
-- Add automatic updates on running processes.
-- and much more!
+- Expand sensor integration and additional GPIO controls.
+- Improve process monitoring and logging.
+- And much more!
 
 ---
 
