@@ -14,7 +14,6 @@ Raspberry Pi.  Features include:
 Only one authorised chat ID may interact with the bot.  The ID and bot token
 are read from the ``.env`` file.
 """
-
 import asyncio
 import os
 import time
@@ -61,12 +60,14 @@ class App:
         self.start_time = time.time()
         self.bot_url = f"https://api.telegram.org/bot{self.token}/sendMessage"
         self.active_process: asyncio.subprocess.Process | None = None
+
+          
         self.GPIO = GPIO
         self.LED_PIN = LED_PIN
         self.hostname = socket.gethostname()
 
         # Notify owner on startup
-        self.send_message_to_owner(f"> {self.hostname} is online <")
+        self.send_message_to_owner(f"> {self.hostname} notifier is online <")
 
         # Build telegram application
         self.app = ApplicationBuilder().token(self.token).build()
@@ -110,7 +111,6 @@ class App:
     handle_process_input = handle_process_input
     superuser = superuser
     process_report = process_report
-
 
 if __name__ == "__main__":
     load_dotenv(dotenv_path=".env")
